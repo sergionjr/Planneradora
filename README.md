@@ -1,8 +1,10 @@
 # CSCI-3308-Group-Project
 
-
-The ReadMe file should contain:
-• Your project title
+## Plannerdora
 • A short description of your project
-• List of team members
+
+## Team Members
+  • Askar Alaskar
+  • Payman Ghiasy
+  • Sergio Nogueira
 • The architecture: (It can either be a diagram or just a list of components that you will be using for your project)
