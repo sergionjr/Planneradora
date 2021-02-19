@@ -15,7 +15,8 @@ tasks that they have added to their account.
   • [Payman Ghiasy](https://github.com/paimang)
   • [Sergio Nogueira](https://github.com/seno7509)
   
-• The architecture: For the backend of our program we will be using
+## The architecture: 
+For the backend of our program we will be using
 Java which one of the few programming languages that android studio offers and
 mySQL for database since android studio has mySQL built in and for the
 frontend of the program we will be using XML and HTML, most of the android
