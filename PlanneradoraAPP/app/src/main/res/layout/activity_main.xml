@@ -39,7 +39,7 @@
         android:layout_height="95dp"
         android:text="Button"
         tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="489dp" />
+        tools:layout_editor_absoluteY="516dp" />
 
     <Switch
         android:id="@+id/switch1"
@@ -56,5 +56,32 @@
         tools:layout_editor_absoluteX="248dp"
         tools:layout_editor_absoluteY="37dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="12dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="664dp" >
+
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+    </SearchView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
