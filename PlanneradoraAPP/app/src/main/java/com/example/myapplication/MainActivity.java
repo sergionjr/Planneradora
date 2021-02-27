@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClick(View view) {
-        test
+
     }
 
     public static class Task{
