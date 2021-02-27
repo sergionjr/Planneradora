@@ -6,89 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
+
+    <Button
+        android:id="@+id/add_task_button"
+        android:layout_width="163dp"
+        android:layout_height="95dp"
+        android:text="Add Task"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/background"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="131dp"
-        android:layout_height="83dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="424dp" />
-
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="163dp"
-        android:layout_height="95dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="516dp" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="136dp"
-        android:layout_height="62dp"
-        android:text="Switch"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="180dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="248dp"
-        tools:layout_editor_absoluteY="37dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="12dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="664dp" >
-
-        <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
-    </SearchView>
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="105dp"
-        android:layout_height="99dp"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="276dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
