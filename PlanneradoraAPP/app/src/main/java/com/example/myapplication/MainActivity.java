@@ -9,11 +9,34 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView month,day,year;
 
+
+    public void onClick(View view) {
+        test
+    }
+
+    public static class Task{
+        String date;
+        int difficulty;
+        boolean finished;
+
+        Task(){
+            this.date = "";
+            this.difficulty = 1;
+            this.finished = false;
+        }
+
+        Task(String date, int difficulty, boolean finished){
+            this.date = date;
+            this.difficulty = difficulty;
+            this.finished = finished;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,4 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }
