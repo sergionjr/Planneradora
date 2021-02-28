@@ -17,7 +17,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button button;
-    TextView month,day,year;
+    public static TextView month,day,year;
 
     public static User myAccount;
 

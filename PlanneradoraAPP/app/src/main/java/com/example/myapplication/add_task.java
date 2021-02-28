@@ -13,23 +13,13 @@ public class add_task extends AppCompatActivity {
 
     private Button add_task_button, diff1, diff2, diff3;
     TextView choose_diff;
-    EditText task_name, task_date, task_description;
+    public static EditText task_name, task_date, task_description;
     public static MainActivity.Task t = new MainActivity.Task();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
-
-        task_name = findViewById(R.id.edtTxtTaskName);
-        task_date = findViewById(R.id.edtTxtDate);
-        task_description = findViewById(R.id.edtTxtDescription);
-
-        MainActivity.Task t = new MainActivity.Task();
-
-        t.name = task_name.getText().toString();
-        t.date = task_date.getText().toString();
-        t.description = task_description.getText().toString();
 
         diff1 = (Button) findViewById(R.id.btnDiff1);
         diff2 = (Button) findViewById(R.id.btnDiff2);
@@ -67,7 +57,16 @@ public class add_task extends AppCompatActivity {
 
 
     public void add_task(){
+        task_name = findViewById(R.id.edtTxtTaskName);
+        task_date = findViewById(R.id.edtTxtDate);
+        task_description = findViewById(R.id.edtTxtDescription);
+
+        t.name = task_name.getText().toString();
+        t.date = task_date.getText().toString();
+        t.description = task_description.getText().toString();
+
         MainActivity.myAccount.add_task(t);
+
         startActivity(new Intent(add_task.this, MainActivity.class));
     }
 
