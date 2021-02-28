@@ -6,4 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".add_task">
 
+    <Button
+        android:id="@+id/btnDiff2"
+        android:layout_width="42dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:text="2"
+        android:onClick="onClick"
+        app:backgroundTint="#E6843A"
+        app:layout_constraintStart_toEndOf="@+id/btnDiff1"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtDate" />
+
+    <Button
+        android:id="@+id/btnDiff3"
+        android:layout_width="42dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:text="3"
+        app:backgroundTint="#FA1515"
+        app:layout_constraintStart_toEndOf="@+id/btnDiff2"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtDate" />
+
+    <EditText
+        android:id="@+id/edtTxtTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Task Name"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <EditText
+        android:id="@+id/edtTxtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter Date"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtTaskName"
+        tools:layout_editor_absoluteX="5dp" />
+
+    <TextView
+        android:id="@+id/txtViewChooseDiff"
+        android:layout_width="157dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="24dp"
+        android:text="Choose Difficulty: "
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtDate"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/btnDiff1"
+        android:layout_width="42dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:text="1"
+        app:backgroundTint="#F4DC62"
+        app:layout_constraintStart_toEndOf="@+id/txtViewChooseDiff"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtDate" />
+
+    <EditText
+        android:id="@+id/edtTxtDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter Task Description"
+        android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewChooseDiff"
+        tools:layout_editor_absoluteX="5dp" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="88dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:text="+"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnDiff3"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>

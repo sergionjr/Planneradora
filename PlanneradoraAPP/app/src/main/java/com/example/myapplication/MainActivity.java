@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import android.view.View;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     TextView month,day,year;
 
+    public static User myAccount;
 
     public void onClick(View view) {
 
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static class Task{
         String date;
+        String name;
+        String description;
         int difficulty;
         boolean finished;
 
@@ -39,6 +43,43 @@ public class MainActivity extends AppCompatActivity {
             this.difficulty = difficulty;
             this.finished = finished;
         }
+    }
+
+    public static class User{
+        String username;
+        String password;
+        ArrayList<Task> tasks = new ArrayList<Task>();
+
+        User(){
+            this.username = "";
+            this.password = "";
+        }
+
+        User(String username, String password){
+            this.username = username;
+            this.password = password;
+        }
+
+        public void add_task(Task t){
+            tasks.add(t);
+        }
+
+        public void remove_task(Task t){
+            tasks.remove(t);
+        }
+
+        public String get_username(){
+            return username;
+        }
+
+        public String get_password(){
+            return password;
+        }
+
+        public Task get_task(int index){
+            return tasks.get(index);
+        }
+
     }
 
     @Override
@@ -73,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 openAdd_task();
             }
         });
+
     }
 
     public void openAdd_task(){
