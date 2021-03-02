@@ -1,20 +1,20 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import android.view.View;
-import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btn_register, btn_signIn;
     private Button button;
@@ -22,8 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
     public static User myAccount;
 
+    @Override
     public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.add_task_button:
+                openAdd_task();
+                break;
 
+            default:
+                break;
+        }
     }
 
     public static class Task{
@@ -87,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
   //      setContentView(R.layout.activity_main);
-        setContentView(R.layout.registration_page);
+        setContentView(R.layout.activity_main);
 
         btn_signIn = findViewById(R.id.btn_signIn);
 
@@ -111,21 +119,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        button = (Button) findViewById(R.id.add_task_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAdd_task();
-            }
-        });
-
-        btn_register = (Button) findViewById(R.id.btn_register);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        button = (Button) findViewById(R.id.add_task_button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openAdd_task();
+//            }
+//        });
+//
+//        btn_register = (Button) findViewById(R.id.btn_register);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
     }
 
