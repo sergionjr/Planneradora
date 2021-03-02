@@ -6,117 +6,69 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/register_userName_text"
+        android:id="@+id/text_userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="Username:"
-        app:layout_constraintEnd_toStartOf="@+id/register_userName_textbox"
-        tools:layout_editor_absoluteY="380dp" />
+        app:layout_constraintEnd_toStartOf="@+id/textbox_userName"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/register_passWord_textbox"
+        android:id="@+id/textbox_userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="445dp" />
-
-    <EditText
-        android:id="@+id/register_userName_textbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="224dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="371dp" />
-
-    <TextView
-        android:id="@+id/passWord_text4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Password:"
-        app:layout_constraintEnd_toStartOf="@+id/register_passWord_textbox"
-        tools:layout_editor_absoluteY="445dp" />
-
-    <TextView
-        android:id="@+id/signIn_userName_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Username:"
-        app:layout_constraintEnd_toStartOf="@+id/signIn_userName_textbox"
-        tools:layout_editor_absoluteY="105dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/signIn_passWord_textbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/signIn_userName_textbox"
-        tools:layout_editor_absoluteX="100dp" />
-
-    <EditText
-        android:id="@+id/signIn_userName_textbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="93dp" />
-
-    <TextView
-        android:id="@+id/signIn_passWord_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Password:"
-        app:layout_constraintEnd_toStartOf="@+id/signIn_passWord_textbox"
-        tools:layout_editor_absoluteY="165dp" />
-
-    <Button
-        android:id="@+id/signIn_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="function();"
-        android:text="Sign In"
-        app:layout_constraintTop_toBottomOf="@+id/signIn_passWord_textbox"
-        tools:layout_editor_absoluteX="150dp" />
-
-    <EditText
-        android:id="@+id/register_confirmPassword_textBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="504dp" />
-
-    <TextView
-        android:id="@+id/register_confirmPassword_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Confirm \nPassword:"
-        app:layout_constraintEnd_toStartOf="@+id/register_confirmPassword_textBox"
-        tools:layout_editor_absoluteY="504dp" />
-
-    <Button
-        android:id="@+id/register_button"
+        android:id="@+id/textbox_passWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textbox_userName" />
+
+    <Button
+        android:id="@+id/btn_signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:onClick="function();"
+        android:text="Sign In"
+        app:layout_constraintEnd_toStartOf="@+id/btn_register"
+        app:layout_constraintTop_toBottomOf="@+id/textbox_passWord" />
+
+    <TextView
+        android:id="@+id/text_passWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Password:"
+        app:layout_constraintEnd_toStartOf="@+id/textbox_passWord"
+        tools:layout_editor_absoluteY="299dp" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Register"
-        app:layout_constraintTop_toBottomOf="@+id/register_confirmPassword_textBox"
-        tools:layout_editor_absoluteX="134dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textbox_passWord"
+        tools:layout_editor_absoluteX="214dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
