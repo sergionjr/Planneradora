@@ -66,7 +66,7 @@ public class add_task extends AppCompatActivity implements View.OnClickListener{
         t.date = task_date.getText().toString();
         t.description = task_description.getText().toString();
 
-        MainActivity.myAccount.add_task(t);
+//        MainActivity.myAccount.add_task(t);
 
         startActivity(new Intent(add_task.this, MainActivity.class));
     }

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button button;
     public static TextView month,day,year;
 
-    public static User myAccount;
+//    public static User myAccount;
 
     @Override
     public void onClick(View view) {
@@ -55,42 +55,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public static class User{
-        String username;
-        String password;
-        ArrayList<Task> tasks = new ArrayList<Task>();
+//    public static class User{
+//        String username;
+//        String password;
+//        ArrayList<Task> tasks = new ArrayList<Task>();
+//
+//        User(){
+//            this.username = "";
+//            this.password = "";
+//        }
+//
+//        User(String username, String password){
+//            this.username = username;
+//            this.password = password;
+//        }
+//
+//        public void add_task(Task t){
+//            tasks.add(t);
+//        }
+//
+//        public void remove_task(Task t){
+//            tasks.remove(t);
+//        }
+//
+//        public String get_username(){
+//            return username;
+//        }
+//
+//        public String get_password(){
+//            return password;
+//        }
+//
+//        public Task get_task(int index){
+//            return tasks.get(index);
+//        }
 
-        User(){
-            this.username = "";
-            this.password = "";
-        }
-
-        User(String username, String password){
-            this.username = username;
-            this.password = password;
-        }
-
-        public void add_task(Task t){
-            tasks.add(t);
-        }
-
-        public void remove_task(Task t){
-            tasks.remove(t);
-        }
-
-        public String get_username(){
-            return username;
-        }
-
-        public String get_password(){
-            return password;
-        }
-
-        public Task get_task(int index){
-            return tasks.get(index);
-        }
-
-    }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
