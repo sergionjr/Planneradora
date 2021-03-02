@@ -16,6 +16,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button btn_register, btn_signIn;
     private Button button;
     public static TextView month,day,year;
 
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btn_signIn = findViewById(R.id.btn_register);
+
         month = findViewById(R.id.month);
         day = findViewById(R.id.day);
         year = findViewById(R.id.year);
@@ -115,7 +118,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_register = (Button) findViewById(R.id.btn_register);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
+
+
 
     public void openAdd_task(){
         Intent intent = new Intent(this, add_task.class);

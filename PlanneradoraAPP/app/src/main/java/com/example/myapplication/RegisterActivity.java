@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
+
 public class RegisterActivity {
     private int id;
     private String userName;
     private String passWord;
+
+
 
     public RegisterActivity(int id, String userName, String passWord) {
         this.id = id;
