@@ -1,37 +1,26 @@
 package com.example.myapplication;
 
 
-public class RegisterActivity {
-    private int id;
+public class UserModel {
     private String userName;
     private String passWord;
 
-
-
-    public RegisterActivity(int id, String userName, String passWord) {
-        this.id = id;
+    public UserModel(int id, String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
     }
 
-    // Sergio: using toString to generate fields for printing contents of username, password, id, etc
+    // Sergio: using toString to generate fields for printing contents of username, password, etc
+
     @Override
     public String toString() {
-        return "RegisterActivity{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
+        return "UserModel{" +
+                "userName='" + userName + '\'' +
                 ", passWord='" + passWord + '\'' +
                 '}';
     }
 
     // Sergio: Getters and setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;
