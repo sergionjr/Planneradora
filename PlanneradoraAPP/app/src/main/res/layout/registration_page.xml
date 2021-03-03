@@ -14,6 +14,8 @@
         android:layout_marginRight="16dp"
         android:text="Username:"
         app:layout_constraintEnd_toStartOf="@+id/textbox_userName"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -44,31 +46,36 @@
         android:id="@+id/btn_signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
+        android:layout_marginTop="36dp"
         android:onClick="function();"
         android:text="Sign In"
         app:layout_constraintEnd_toStartOf="@+id/btn_register"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textbox_passWord" />
 
     <TextView
         android:id="@+id/text_passWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="Password:"
         app:layout_constraintEnd_toStartOf="@+id/textbox_passWord"
-        tools:layout_editor_absoluteY="299dp" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_userName" />
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
         android:text="Register"
-        app:layout_constraintTop_toBottomOf="@+id/textbox_passWord"
-        tools:layout_editor_absoluteX="214dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textbox_passWord" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

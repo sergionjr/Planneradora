@@ -4,8 +4,10 @@ package com.example.myapplication;
 public class UserModel {
     private String userName;
     private String passWord;
+    private int id;
 
     public UserModel(int id, String userName, String passWord) {
+        this.id = id;
         this.userName = userName;
         this.passWord = passWord;
     }
@@ -17,10 +19,13 @@ public class UserModel {
         return "UserModel{" +
                 "userName='" + userName + '\'' +
                 ", passWord='" + passWord + '\'' +
+                ", id=" + id +
                 '}';
     }
 
+
     // Sergio: Getters and setters
+
 
     public String getUserName() {
         return userName;
@@ -36,6 +41,14 @@ public class UserModel {
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
 
