@@ -1,6 +1,6 @@
 # CSCI-3308-Group-Project
 
-## Plannerdora
+## Planneradora
 • The plannedora will be a mobile application that helps
 users with accessibility in their everyday life. It will have a variety of options for
 adding different tasks onto a main landing page that shows you exactly what you
@@ -15,7 +15,7 @@ tasks that they have added to their account.
   • [Payman Ghiasy](https://github.com/paimang)
   • [Sergio Nogueira](https://github.com/seno7509)
   
-### The architecture 
+### The Architecture 
 For the backend of our program we will be using
 Java which one of the few programming languages that android studio offers and
 mySQL for database since android studio has mySQL built in and for the
