@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void openAdd_task(){
-        Intent intent = new Intent(this, add_task.class);
+        Intent intent = new Intent(this, AddTaskActivity.class);
         startActivity(intent);
     }
 

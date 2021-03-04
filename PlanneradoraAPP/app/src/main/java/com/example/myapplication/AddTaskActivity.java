@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class add_task extends AppCompatActivity implements View.OnClickListener{
+public class AddTaskActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button add_task_button, diff1, diff2, diff3;
     TextView choose_diff;
@@ -68,7 +68,7 @@ public class add_task extends AppCompatActivity implements View.OnClickListener{
 
 //        MainActivity.myAccount.add_task(t);
 
-        startActivity(new Intent(add_task.this, MainActivity.class));
+        startActivity(new Intent(AddTaskActivity.this, MainActivity.class));
     }
 
     @Override
