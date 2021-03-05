@@ -1,15 +1,21 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -20,6 +26,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button button;
     public static TextView month,day,year;
 
+    public static ArrayList<String> tasks;
+    public ArrayAdapter<String> task_adapter;
+    public static ListView list_view;
+
+    public static String updater = "";
+
+
 //    public static User myAccount;
 
     @Override
@@ -28,7 +41,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.add_task_button:
                 openAdd_task();
                 break;
-
+//            case R.id.btnDiff1:
+//                Toast.makeText(this, "Chosen Difficulty 1", Toast.LENGTH_LONG).show();
+//                break;
+//            case R.id.btnDiff2:
+//                Toast.makeText(this, "Chosen Difficulty 2", Toast.LENGTH_LONG).show();
+//                break;
+//            case R.id.btnDiff3:
+//                Toast.makeText(this, "Chosen Difficulty 3", Toast.LENGTH_LONG).show();
+//                break;
+//            case R.id.btnAdd:
+//                EditText task_name = findViewById(R.id.edtTxtTaskName);
+//                task_adapter.add(task_name.getText().toString());
+//                setContentView(R.layout.activity_main);
+//                break;
+            case R.id.rmButton:
+                add_to_adapter();
+                if(task_adapter.isEmpty()){
+                    Toast.makeText(this, "You didn't add any new tasks", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(this, "You have at least one new task", Toast.LENGTH_LONG).show();
+                }
+                break;
             default:
                 break;
         }
@@ -117,7 +151,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("myLOG", splitDate[1].trim());
         Log.d("myLOG", splitDate[2].trim());
 
+        list_view = findViewById(R.id.listView);
 
+
+        tasks = new ArrayList<>();
+        task_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
+        list_view.setAdapter(task_adapter);
+        setUpListViewListener();
 
 //        button = (Button) findViewById(R.id.add_task_button);
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +177,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void add_to_adapter(){
+        task_adapter.add(updater);
+    }
 
+    private void setUpListViewListener() {
+        list_view.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Context context = getApplicationContext();
+                Toast.makeText(context, "Item Removed", Toast.LENGTH_LONG).show();
+
+                tasks.remove(position);
+                task_adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+    }
 
     public void openAdd_task(){
         Intent intent = new Intent(this, AddTaskActivity.class);

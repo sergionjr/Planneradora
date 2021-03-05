@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -67,8 +66,9 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
         t.description = task_description.getText().toString();
 
 //        MainActivity.myAccount.add_task(t);
-
-        startActivity(new Intent(AddTaskActivity.this, MainActivity.class));
+        //MainActivity.tasks.add(t);
+        //MainActivity.task_adapter.add(t);
+        MainActivity.updater = t.name;
     }
 
     @Override
