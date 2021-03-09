@@ -68,23 +68,23 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
 //        MainActivity.myAccount.add_task(t);
         //MainActivity.tasks.add(t);
         //MainActivity.task_adapter.add(t);
-        MainActivity.updater = t.name;
+        MainActivity.updater.add(t.name);
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.btnDiff1:
-                Toast.makeText(this, "Hello Difficulty 1", Toast.LENGTH_SHORT).show();
+            case R.id.btn_diff1:
                 t.difficulty = 1;
                 break;
-            case R.id.btnDiff2:
+            case R.id.btn_diff2:
                 t.difficulty = 2;
-            case R.id.btnDiff3:
+            case R.id.btn_diff3:
                 t.difficulty = 3;
                 break;
-            case R.id.btnAdd:
+            case R.id.btn_add:
                 add_task();
+                Toast.makeText(this, "Task: " + t.name + " has been added to the list.", Toast.LENGTH_LONG).show();
                 break;
             default:
                 break;
