@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_register = findViewById(R.id.btn_register);
         btn_signIn = findViewById(R.id.btn_signIn);
         // Sergio: This attaches the java textboxes to the XML textboxes
-        textbox_userName = findViewById(R.id.textbox_userName);
+        textbox_userName = findViewById(R.id.textbox_email);
         textbox_passWord = findViewById(R.id.textbox_passWord);
 
         // Sergio: This allows the code in the onClick() function to activate if the register button is pressed
