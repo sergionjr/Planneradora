@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ArrayAdapter<String> task_adapter;
     public static ListView list_view;
 
-    public static String updater = "";
+    public static ArrayList<String> updater = new ArrayList<>();
 
 
 //    public static User myAccount;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.add_task_button:
+            case R.id.add_task_btn:
                 openAdd_task();
                 break;
 //            case R.id.btnDiff1:
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                task_adapter.add(task_name.getText().toString());
 //                setContentView(R.layout.activity_main);
 //                break;
-            case R.id.rmButton:
+            case R.id.update_btn:
                 add_to_adapter();
                 if(task_adapter.isEmpty()){
                     Toast.makeText(this, "You didn't add any new tasks", Toast.LENGTH_LONG).show();
@@ -177,10 +177,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //Alaskar - repopulates the listview with the added tasks of the user
     public void add_to_adapter(){
-        task_adapter.add(updater);
+        for(int i = 0; i < updater.size(); i++){
+            if(!tasks.contains(updater.get(i))){
+                task_adapter.add(updater.get(i));
+            }
+        }
     }
 
+    //Alaskar - listens for a long press on a task item and deletes after a long press
     private void setUpListViewListener() {
         list_view.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
