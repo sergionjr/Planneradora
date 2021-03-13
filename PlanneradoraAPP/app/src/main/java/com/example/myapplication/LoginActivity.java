@@ -1,13 +1,16 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +39,11 @@ public class LoginActivity extends AppCompatActivity {
         // Sergio: This attaches the java textboxes to the XML textboxes
         textbox_userName = findViewById(R.id.textbox_email);
         textbox_passWord = findViewById(R.id.textbox_passWord);
+        // Sergio: This attaches the progress bar to the XML progressbar
+
+
+
+
 
         // Sergio: This allows the code in the onClick() function to activate if the register button is pressed
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         // Maps clicking function to the button
         btn_signIn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 signInUser();
@@ -56,7 +65,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // Sergio: Signs in the user with the userName & passWord fields.
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void signInUser() {
+
         String userName = textbox_userName.getText().toString().trim();
         String passWord = textbox_passWord.getText().toString().trim();
 
@@ -74,11 +85,15 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+
+
         // FireDB function to sign in with email and password
         mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
                 else{
@@ -86,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     // Sergio: Function to register the user with an email and password.
