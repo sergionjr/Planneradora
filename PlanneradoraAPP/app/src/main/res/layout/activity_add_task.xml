@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".AddTaskActivity">
 
+
+    <Button
+        android:id="@+id/btnPick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:text="Pick Date"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="150dp" />
+
     <Button
         android:id="@+id/btn_diff2"
         android:layout_width="42dp"
@@ -100,4 +110,14 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toStartOf="@+id/btn_diff3"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtDescription" />
+
+    <TextView
+        android:id="@+id/txtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Hello World!"
+        android:textSize="35sp"
+        app:layout_constraintTop_toTopOf="@+id/btnPick"
+        tools:layout_editor_absoluteX="111dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
