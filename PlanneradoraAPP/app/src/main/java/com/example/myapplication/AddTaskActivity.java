@@ -11,6 +11,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 
 public class AddTaskActivity extends AppCompatActivity implements View.OnClickListener{
@@ -18,7 +23,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
     private Button add_task_button, diff1, diff2, diff3;
     TextView choose_diff;
     public static EditText task_name, task_date, task_description;
-    public static MainActivity.Task t = new MainActivity.Task();
+    public TaskModel t = new TaskModel();
     TextView mTv;
     Button mBtn;
 
@@ -101,7 +106,16 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
 //        MainActivity.myAccount.add_task(t);
         //MainActivity.tasks.add(t);
         //MainActivity.task_adapter.add(t);
-        MainActivity.updater.add(t.name);
+        MainActivity.updater.add(t);
+
+        // Alaskar - Trying to get info from current user to add the task to Database, Needs Database Ref and User from FirebaseAuth
+        // to get the current user that is logged in.
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("user");
+
+        Toast.makeText(this, "Current User: " + ref.child(user.getUid()).getKey().toString(), Toast.LENGTH_LONG).show();
     }
 
     @Override
