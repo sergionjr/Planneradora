@@ -9,12 +9,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
@@ -29,6 +33,11 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
 
     Calendar c;
     DatePickerDialog dpd;
+
+    private FirebaseDatabase mFirebaseDatabase;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListner;
+    private DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,43 +67,38 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-//
-//        diff1 = (Button) findViewById(R.id.btnDiff1);
-//        diff2 = (Button) findViewById(R.id.btnDiff2);
-//        diff3 = (Button) findViewById(R.id.btnDiff3);
-//        add_task_button = (Button) findViewById(R.id.btnAdd);
-//
-//        diff1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                t.difficulty = 1;
-//            }
-//        });
-//
-//        diff2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                t.difficulty = 2;
-//            }
-//        });
-//
-//        diff3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                t.difficulty = 3;
-//            }
-//        });
-//
-//        add_task_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                add_task();
-//            }
-//        });
+        mAuth = FirebaseAuth.getInstance();
+
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+
+        mAuthListner = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if(user != null){
+
+                } else{
+
+                }
+            }
+        };
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
     public void add_task(){
+        String userID = mAuth.getCurrentUser().getUid().toString();
         task_name = findViewById(R.id.edtTxtTaskName);
         task_date = findViewById(R.id.edtTxtDate);
         task_description = findViewById(R.id.edtTxtDescription);
@@ -102,6 +106,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
         t.name = task_name.getText().toString();
         t.date = task_date.getText().toString();
         t.description = task_description.getText().toString();
+        t.userID = userID;
 
 //        MainActivity.myAccount.add_task(t);
         //MainActivity.tasks.add(t);
@@ -111,11 +116,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
         // Alaskar - Trying to get info from current user to add the task to Database, Needs Database Ref and User from FirebaseAuth
         // to get the current user that is logged in.
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("user");
 
-        Toast.makeText(this, "Current User: " + ref.child(user.getUid()).getKey().toString(), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -135,6 +136,20 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListner);
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        if(mAuthListner != null){
+            mAuth.removeAuthStateListener(mAuthListner);
         }
     }
 }
