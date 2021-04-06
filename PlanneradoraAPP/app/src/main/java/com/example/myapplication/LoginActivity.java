@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -85,10 +86,14 @@ public class LoginActivity extends AppCompatActivity {
             textbox_passWord.requestFocus();
             return;
         }
-// ReadAttempt
-        String TaskRead = mDatabase.child("Tasks").child("bNrVby7h3bPSIOQnUJn5Q3gVqLt1").getKey();
-        Toast.makeText(LoginActivity.this, TaskRead, Toast.LENGTH_LONG).show();
-// ReadAttempt End
+
+
+
+
+
+
+        //Toast.makeText(LoginActivity.this, TaskRead, Toast.LENGTH_LONG).show();
+
         // FireDB function to sign in with email and password
         mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
