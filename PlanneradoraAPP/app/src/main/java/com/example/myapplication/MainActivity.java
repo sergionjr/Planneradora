@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ArrayAdapter<String> task_adapter;
     public static ListView list_view;
 
-    public static ArrayList<String> updater = new ArrayList<>();
+    public static ArrayList<TaskModel> updater = new ArrayList<>();
 
 
 //    public static User myAccount;
@@ -68,63 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public static class Task{
-        String date;
-        String name;
-        String description;
-        int difficulty;
-        boolean finished;
-
-        Task(){
-            this.date = "";
-            this.difficulty = 1;
-            this.finished = false;
-        }
-
-        Task(String date, int difficulty, boolean finished){
-            this.date = date;
-            this.difficulty = difficulty;
-            this.finished = finished;
-        }
-    }
-
-//    public static class User{
-//        String username;
-//        String password;
-//        ArrayList<Task> tasks = new ArrayList<Task>();
-//
-//        User(){
-//            this.username = "";
-//            this.password = "";
-//        }
-//
-//        User(String username, String password){
-//            this.username = username;
-//            this.password = password;
-//        }
-//
-//        public void add_task(Task t){
-//            tasks.add(t);
-//        }
-//
-//        public void remove_task(Task t){
-//            tasks.remove(t);
-//        }
-//
-//        public String get_username(){
-//            return username;
-//        }
-//
-//        public String get_password(){
-//            return password;
-//        }
-//
-//        public Task get_task(int index){
-//            return tasks.get(index);
-//        }
-
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btn_signIn = findViewById(R.id.btn_signIn);
+        add_to_adapter();
 
         month = findViewById(R.id.month);
         day = findViewById(R.id.day);
@@ -180,8 +124,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Alaskar - repopulates the listview with the added tasks of the user
     public void add_to_adapter(){
         for(int i = 0; i < updater.size(); i++){
-            if(!tasks.contains(updater.get(i))){
-                task_adapter.add(updater.get(i));
+            if(!tasks.contains(updater.get(i).name)){
+                task_adapter.add(updater.get(i).name);
             }
         }
     }
@@ -195,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(context, "Item Removed", Toast.LENGTH_LONG).show();
 
                 tasks.remove(position);
+                updater.remove(position);
                 task_adapter.notifyDataSetChanged();
                 return true;
             }

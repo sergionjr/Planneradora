@@ -2,14 +2,16 @@ package com.example.myapplication;
 
 public class UserModel {
     public String userName, passWord;
+    public int level;
 
     public UserModel(){
 
     }
 
-    public UserModel(String userName, String passWord){
+    public UserModel(String userName, String passWord, int level){
         this.userName = userName;
         this.passWord = passWord;
+        this.level = level;
     }
 }
 
