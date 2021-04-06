@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        TaskRead = mDatabase.child("Tasks").getKey();
 
 
 
