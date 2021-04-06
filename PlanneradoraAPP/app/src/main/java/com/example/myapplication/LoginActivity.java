@@ -17,10 +17,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     // Sergio: This introduces the buttons/textboxes as variables in java
     Button btn_signIn, btn_register;
@@ -30,9 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_page);
 
-        // Sergio: This introduces the Firebase database
+        // Sergio: This introduces the Firebase authentication database, and regular database
         mAuth = FirebaseAuth.getInstance();
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         // Sergio: This attaches the java buttons to the XML buttons so they are connected
         btn_register = findViewById(R.id.btn_register);
         btn_signIn = findViewById(R.id.btn_signIn);
@@ -84,9 +86,10 @@ public class LoginActivity extends AppCompatActivity {
             textbox_passWord.requestFocus();
             return;
         }
-
-
-
+// ReadAttempt
+        String TaskRead = mDatabase.child("Tasks").child("bNrVby7h3bPSIOQnUJn5Q3gVqLt1").getKey();
+        Toast.makeText(LoginActivity.this, TaskRead, Toast.LENGTH_LONG).show();
+// ReadAttempt End
         // FireDB function to sign in with email and password
         mAuth.signInWithEmailAndPassword(userName, passWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
@@ -109,19 +112,19 @@ public class LoginActivity extends AppCompatActivity {
         String passWord = textbox_passWord.getText().toString();
 
         if (userName.isEmpty()){
-            Toast.makeText(this, "Username is required!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Username is required!", Toast.LENGTH_LONG).show();
             textbox_userName.requestFocus();
             return;
         }
 
         if (passWord.isEmpty()){
-            Toast.makeText(this, "Password is required!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password is required!", Toast.LENGTH_LONG).show();
             textbox_passWord.requestFocus();
             return;
         }
 
         if (passWord.length() < 6){
-            Toast.makeText(this, "Password must be longer than 6 characters!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password must be longer than 6 characters!", Toast.LENGTH_LONG).show();
             textbox_passWord.requestFocus();
         }
 
@@ -139,12 +142,12 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "User has been registered!", Toast.LENGTH_LONG).show();
                             }
                             else{
-                                Toast.makeText(LoginActivity.this, "Failed to register! Try again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Failed to register! Try again", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
                 } else{
-                    Toast.makeText(LoginActivity.this, "User already exists or invalid email was provided! Try again.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "User already exists or invalid email was provided! Try again.", Toast.LENGTH_LONG).show();
                 }
             }
         });
