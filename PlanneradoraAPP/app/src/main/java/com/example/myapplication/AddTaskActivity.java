@@ -38,6 +38,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListner;
     private DatabaseReference myRef;
+    private Object TaskModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,8 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
         mAuth = FirebaseAuth.getInstance();
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
+
+        myRef = mFirebaseDatabase.getReference("Tasks");
 
         mAuthListner = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -116,7 +119,13 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
         // Alaskar - Trying to get info from current user to add the task to Database, Needs Database Ref and User from FirebaseAuth
         // to get the current user that is logged in.
 
-
+        String id = myRef.push().getKey();
+        myRef.child(id).child("name").setValue(t.name);
+        myRef.child(id).child("description").setValue(t.description);
+        myRef.child(id).child("date").setValue(t.date);
+        myRef.child(id).child("userID").setValue(t.userID);
+        myRef.child(id).child("difficulty").setValue(t.difficulty);
+        myRef.child(id).child("completed").setValue(t.completed);
     }
 
     @Override
