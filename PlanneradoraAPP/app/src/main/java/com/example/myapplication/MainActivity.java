@@ -12,7 +12,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -30,7 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ArrayAdapter<String> task_adapter;
     public static ListView list_view;
 
+    private DatabaseReference dbRef;
+
     public static ArrayList<TaskModel> updater = new ArrayList<>();
+    private FirebaseAuth mAuth;
 
 
 //    public static User myAccount;
@@ -81,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         day = findViewById(R.id.day);
         year = findViewById(R.id.year);
 
+        mAuth = FirebaseAuth.getInstance();
+
         Date currentTime = Calendar. getInstance().getTime();
         String formattedDate = DateFormat.getDateInstance(DateFormat.FULL).format(currentTime);
 
@@ -103,6 +116,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list_view.setAdapter(task_adapter);
         setUpListViewListener();
 
+
+        add_to_adapter();
+
 //        button = (Button) findViewById(R.id.add_task_button);
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -123,11 +139,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Alaskar - repopulates the listview with the added tasks of the user
     public void add_to_adapter(){
-        for(int i = 0; i < updater.size(); i++){
-            if(!tasks.contains(updater.get(i).name)){
-                task_adapter.add(updater.get(i).name);
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Tasks");
+
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds: snapshot.getChildren()){
+                    String task = ds.child("name").getValue().toString();
+                    String id = ds.child("userID").getValue().toString();
+
+                    Toast.makeText(MainActivity.this,  id + " " + mAuth.getCurrentUser().getUid().toString(), Toast.LENGTH_LONG).show();
+
+                    if(!tasks.contains(task) && !(id == mAuth.getCurrentUser().getUid().toString())){
+                        task_adapter.add(task);
+                    }
+                }
             }
-        }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+//        for(int i = 0; i < updater.size(); i++){
+//            if(!tasks.contains(updater.get(i).name)){
+//                task_adapter.add(updater.get(i).name);
+//            }
+//        }
     }
 
     //Alaskar - listens for a long press on a task item and deletes after a long press
