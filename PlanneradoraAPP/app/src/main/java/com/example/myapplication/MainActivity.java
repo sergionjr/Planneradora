@@ -39,9 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static ListView list_view;
 
     private DatabaseReference dbRef;
+    private DataSnapshot mySnapShot;
 
     public static ArrayList<TaskModel> updater = new ArrayList<>();
     private FirebaseAuth mAuth;
+    public String myID;
 
 
 //    public static User myAccount;
@@ -93,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         year = findViewById(R.id.year);
 
         mAuth = FirebaseAuth.getInstance();
+        myID = mAuth.getCurrentUser().getUid().toString().trim();
+
 
         Date currentTime = Calendar. getInstance().getTime();
         String formattedDate = DateFormat.getDateInstance(DateFormat.FULL).format(currentTime);
@@ -144,13 +148,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mySnapShot = snapshot;
                 for(DataSnapshot ds: snapshot.getChildren()){
-                    String task = ds.child("name").getValue().toString();
-                    String id = ds.child("userID").getValue().toString();
+                    String task = ds.child("name").getValue().toString().trim();
+                    String id =  ds.child("userID").getValue().toString().trim();
 
-                    Toast.makeText(MainActivity.this,  id + " " + mAuth.getCurrentUser().getUid().toString(), Toast.LENGTH_LONG).show();
+                    String newId = id;
+                    String newMyID = myID;
 
-                    if(!tasks.contains(task) && !(id == mAuth.getCurrentUser().getUid().toString())){
+                    boolean ok = true;
+
+                    for(int i = 0; i < newId.length(); i++){
+                        char c1, c2;
+
+                        c1 = newMyID.charAt(i);
+                        c2 = newId.charAt(i);
+
+                        if(!(c1 == c2)){
+                            ok = false;
+                            break;
+                        }
+                    }
+
+                    if(!tasks.contains(task) && ok){
                         task_adapter.add(task);
                     }
                 }
@@ -177,9 +197,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Context context = getApplicationContext();
                 Toast.makeText(context, "Item Removed", Toast.LENGTH_LONG).show();
 
+                String task = tasks.get(position);
+
                 tasks.remove(position);
-                updater.remove(position);
                 task_adapter.notifyDataSetChanged();
+
+                for(DataSnapshot ds: mySnapShot.getChildren()){
+                    String name = ds.child("name").getValue().toString().trim();
+                    String newName = name;
+
+                    if(newName == task){
+                        ds.getRef().removeValue();
+                        break;
+                    }
+                }
+
                 return true;
             }
         });
@@ -189,5 +221,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, AddTaskActivity.class);
         startActivity(intent);
     }
+
 
 }
