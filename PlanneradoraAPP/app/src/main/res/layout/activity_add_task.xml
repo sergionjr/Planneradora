@@ -12,36 +12,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pick Date"
-        app:layout_constraintBottom_toTopOf="@+id/btn_diff2"
-        app:layout_constraintEnd_toEndOf="@+id/btn_diff3"
-        app:layout_constraintHorizontal_bias="0.704"
-        app:layout_constraintStart_toEndOf="@+id/txtView"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtTaskName"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164" />
 
     <Button
         android:id="@+id/btn_diff2"
         android:layout_width="42dp"
         android:layout_height="54dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:onClick="onClick"
         android:text="2"
         app:backgroundTint="#E6843A"
-        app:layout_constraintStart_toEndOf="@+id/btn_diff1"
-        tools:layout_editor_absoluteY="182dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.715"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.247" />
 
     <Button
         android:id="@+id/btn_diff3"
         android:layout_width="42dp"
         android:layout_height="54dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:onClick="onClick"
         android:text="3"
         app:backgroundTint="#FA1515"
-        app:layout_constraintStart_toEndOf="@+id/btn_diff2"
-        tools:layout_editor_absoluteY="182dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.247" />
 
     <EditText
         android:id="@+id/edtTxtTaskName"
@@ -50,8 +54,12 @@
         android:ems="10"
         android:hint="Enter Task Name"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="52dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059" />
 
     <TextView
         android:id="@+id/txtViewChooseDiff"
@@ -59,53 +67,66 @@
         android:layout_height="37dp"
         android:text="Choose Difficulty: "
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="190dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.252" />
 
     <Button
         android:id="@+id/btn_diff1"
         android:layout_width="42dp"
         android:layout_height="54dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
         android:onClick="onClick"
         android:text="1"
         app:backgroundTint="#F4DC62"
-        app:layout_constraintStart_toEndOf="@+id/txtViewChooseDiff"
-        tools:layout_editor_absoluteY="182dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248" />
 
     <EditText
         android:id="@+id/edtTxtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Enter Task Description"
         android:inputType="textMultiLine"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewChooseDiff"
-        tools:layout_editor_absoluteX="5dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.329" />
 
     <Button
         android:id="@+id/btn_add"
         android:layout_width="88dp"
         android:layout_height="71dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
         android:onClick="onClick"
         android:text="+"
         android:textSize="36sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_diff3"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtDescription" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693" />
 
     <TextView
         android:id="@+id/txtView"
         android:layout_width="180dp"
         android:layout_height="39dp"
-        android:layout_marginTop="4dp"
         android:text="Date"
         android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="@+id/btnPick"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162" />
 </androidx.constraintlayout.widget.ConstraintLayout>
