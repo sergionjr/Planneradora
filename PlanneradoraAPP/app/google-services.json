@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "304242309351",
+    "firebase_url": "https://planneradora-default-rtdb.firebaseio.com",
+    "project_id": "planneradora",
+    "storage_bucket": "planneradora.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304242309351:android:2fe409b8404ae7cda70a42",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304242309351-gj3jfd0khj6nquqootosbr45ugf793r9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB5DoJwLUZsTPgjSAVpQJTxGKO6GjQ8AY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304242309351-gj3jfd0khj6nquqootosbr45ugf793r9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
