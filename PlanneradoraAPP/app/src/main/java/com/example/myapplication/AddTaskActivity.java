@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -26,9 +27,9 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
 
     private Button add_task_button, diff1, diff2, diff3;
     TextView choose_diff;
-    public static EditText task_name, task_date, task_description;
+    public static EditText task_name, task_description;
     public TaskModel t = new TaskModel();
-    TextView mTv;
+    public TextView mTv;
     Button mBtn;
 
     Calendar c;
@@ -101,15 +102,15 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
 
 
     public void add_task(){
-        String userID = mAuth.getCurrentUser().getUid().toString();
+        Log.d("DEBUG Text", mTv.getText().toString().trim());
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid().toString().trim();
         task_name = findViewById(R.id.edtTxtTaskName);
-        task_date = findViewById(R.id.edtTxtDate);
         task_description = findViewById(R.id.edtTxtDescription);
 
         t.name = task_name.getText().toString();
-        t.date = task_date.getText().toString();
         t.description = task_description.getText().toString();
         t.userID = userID;
+        t.date = mTv.getText().toString().trim();
 
 //        MainActivity.myAccount.add_task(t);
         //MainActivity.tasks.add(t);
