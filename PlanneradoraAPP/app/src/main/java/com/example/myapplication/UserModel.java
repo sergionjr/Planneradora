@@ -1,11 +1,16 @@
 package com.example.myapplication;
 
+import java.util.ArrayList;
+
 public class UserModel {
     public String userName, passWord;
     public int level;
 
-    public UserModel(){
 
+
+
+
+    public UserModel(){
     }
 
     public UserModel(String userName, String passWord, int level){

@@ -20,9 +20,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Console;
+
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private DatabaseReference mDatabase;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mReferenceTasks;
 
     // Sergio: This introduces the buttons/textboxes as variables in java
     Button btn_signIn, btn_register;
@@ -31,10 +34,16 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_page);
+        getSupportActionBar().hide();//will hide the title
+
 
         // Sergio: This introduces the Firebase authentication database, and regular database
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance();
+        mReferenceTasks = mDatabase.getReference("Tasks");
+
+        
+
         // Sergio: This attaches the java buttons to the XML buttons so they are connected
         btn_register = findViewById(R.id.btn_register);
         btn_signIn = findViewById(R.id.btn_signIn);

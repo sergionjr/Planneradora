@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_register, btn_signIn;
     private Button button;
     public static TextView month,day,year;
-
     public static ArrayList<String> tasks;
     public ArrayAdapter<String> task_adapter;
     public static ListView list_view;
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
   //      setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().hide();
         btn_signIn = findViewById(R.id.btn_signIn);
         add_to_adapter();
 
