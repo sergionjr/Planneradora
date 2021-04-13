@@ -45,6 +45,7 @@ public class AddTaskActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+        getSupportActionBar().hide();
 
         mTv = (TextView) findViewById(R.id.txtView);
         mBtn = (Button) findViewById(R.id.btnPick);
