@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static ArrayList<TaskModel> updater = new ArrayList<>();
     private FirebaseAuth mAuth;
     public String myID;
-
+    public static String taskID = "";
 
 //    public static User myAccount;
 
@@ -152,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 for(DataSnapshot ds: snapshot.getChildren()){
                     String task = ds.child("name").getValue().toString().trim();
                     String id =  ds.child("userID").getValue().toString().trim();
+                    Boolean comp = (Boolean) ds.child("completed").getValue();
 
                     String newId = id;
                     String newMyID = myID;
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
 
-                    if(!tasks.contains(task) && ok){
+                    if(!tasks.contains(task) && ok && !comp){
                         task_adapter.add(task);
                     }
                 }
@@ -191,26 +191,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Alaskar - listens for a long press on a task item and deletes after a long press
     private void setUpListViewListener() {
+        Intent intent = new Intent(this, ViewTaskActivity.class);
+
         list_view.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Item Removed", Toast.LENGTH_LONG).show();
+//                Context context = getApplicationContext();
+//                Toast.makeText(context, "Item Removed", Toast.LENGTH_LONG).show();
 
                 String task = tasks.get(position);
 
-                tasks.remove(position);
-                task_adapter.notifyDataSetChanged();
+//                tasks.remove(position);
+//                task_adapter.notifyDataSetChanged();
 
                 for(DataSnapshot ds: mySnapShot.getChildren()){
                     String name = ds.child("name").getValue().toString().trim();
                     String newName = name;
 
                     if(newName == task){
-                        ds.getRef().removeValue();
+                        taskID = ds.getKey().toString().trim();
+                        String tmp = taskID;
+                        taskID = tmp;
+
+                        Log.d("DEBUG TID: ", taskID);
+//                        ds.getRef().removeValue();
                         break;
                     }
                 }
+
+                startActivity(intent);
 
                 return true;
             }
