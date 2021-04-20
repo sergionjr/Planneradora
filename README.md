@@ -30,5 +30,5 @@ your application and using HTML to make the presentation better.
 1. Download and install the latest version of [Android Studio](https://developer.android.com/studio)
 2. In Android Studio, choose "Import Project" at the welcome screen.
 3. Browse to the location of the project, and double-click on the project directory.
-4. if prompted with options, check "Use auto-import", and select "Use default gradle wrapper (recommended)". Click "Ok".
+4. Once you find the directory of the app, you will have go inside the application folders with android icon till you find folder called app and open it as it shown in this [picture](https://ibb.co/0jP1xDs)
 5. You might have to manually install emulator by going into AVD MANAGER and clicking create virtual device. (WE RECOMMEND USING Pixel 3a API 25 FOR FASTER RUNTIME)
