@@ -23,3 +23,12 @@ frontend of the program we will be using XML and HTML, most of the android
 apps use XML for the front end of application which is easier to transfer files into
 your application and using HTML to make the presentation better.
 
+## Deployment
+
+### Building in Android Studio
+
+1. Download and install the latest version of [Android Studio](https://developer.android.com/studio)
+2. In Android Studio, choose "Import Project" at the welcome screen.
+3. Browse to the location of the project, and double-click on the project directory.
+4. if prompted with options, check "Use auto-import", and select "Use default gradle wrapper (recommended)". Click "Ok".
+5. You might have to manually install emulator by going into AVD MANAGER and clicking create virtual device. (WE RECOMMEND USING Pixel 3a API 25 FOR FASTER RUNTIME)
